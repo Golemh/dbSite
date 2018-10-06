@@ -37,10 +37,10 @@
                 <i class="fa d-inline fa-lg fa-envelope-o"></i> Go to</a>
             
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="http://localhost/Retailer/customers/index.php">Customers</a>
-              <a class="dropdown-item" href="http://localhost/Retailer/Salesperson/index.php">Salesperson</a>
-              <a class="dropdown-item" href="http://localhost/Retailer/product/index.php">Product</a>
-              <a class="dropdown-item" href="http://localhost/Retailer/Users/index.php">Users</a>
+              <a class="dropdown-item" href="/dbSite/Retailer/customers/index.php">Customers</a>
+              <a class="dropdown-item" href="/dbSite/Retailer/Salesperson/index.php">Salesperson</a>
+              <a class="dropdown-item" href="/dbSite/Retailer/Product/index.php">Product</a>
+              <a class="dropdown-item" href="/dbSite/Retailer/Users/index.php">Users</a>
             </div>
             </li>
           </ul>
