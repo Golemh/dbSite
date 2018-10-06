@@ -5,7 +5,7 @@
   session_start();
   include 'connection.php';
   if (!isset($_SESSION['username'])):
-    header("Location: http://localhost/Retailer/LoginPage/LoginPage.php");
+    header("Location: /dbSite/Retailer/LoginPage/LoginPage.php");
   
  else:
 ;?>
