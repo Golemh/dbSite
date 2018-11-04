@@ -47,7 +47,7 @@
         <?php 
           if (isset($_SESSION['username'])) : ?>
         
-          <a class="btn navbar-btn btn-primary ml-2 text-white" href="http://localhost/Retailer/LoginPage/logout.php">
+          <a class="btn navbar-btn btn-primary ml-2 text-white" href="../LoginPage/logout.php">
           <i class="fa d-inline fa-lg fa-user-circle-o"></i> Log out</a>
           <?php else : ?>
         <a class="btn navbar-btn btn-primary ml-2 text-white" href="../LoginPage/LoginPage.php">
