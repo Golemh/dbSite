@@ -3,9 +3,9 @@
 
 <?php
   session_start();
-  include 'connection.php';
+  include '../connection.php';
   if (!isset($_SESSION['username'])):
-    header("Location: /dbSite/Retailer/LoginPage/LoginPage.php");
+    header("Location: ../LoginPage/LoginPage.php");
   
  else:
 ;?>
@@ -17,6 +17,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" type="text/css" href="theme.css">
+  <style type="text/css">
+ul {
+list-style-type: none;
+}
+</style>
    </head>
 
 <body>
@@ -29,7 +34,7 @@
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/dbSite/Retailer/LoginPage/AdminPanel.html">
+            <a class="nav-link" href="../LoginPage/AdminPanel.html">
               <i class="fa d-inline fa-lg fa-bookmark-o"></i> Admin panel</a>
           </li>
           <li class="nav-item dropdown">
@@ -37,10 +42,10 @@
               <i class="fa d-inline fa-lg fa-envelope-o"></i> Go to</a>
           
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/dbSite/Retailer/customers/index.php">Customers</a>
-            <a class="dropdown-item" href="/dbSite/Retailer/Salesperson/index.php">Salesperson</a>
-            <a class="dropdown-item" href="/dbSite/Retailer/product/index.php">Product</a>
-            <a class="dropdown-item" href="/dbSite/Retailer/Users/index.php">Users</a>
+            <a class="dropdown-item" href="../customers/index.php">Customers</a>
+            <a class="dropdown-item" href="../Salesperson/index.php">Salesperson</a>
+            <a class="dropdown-item" href="../product/index.php">Product</a>
+            <a class="dropdown-item" href="../Users/index.php">Users</a>
           </div>
           </li>
         </ul>
@@ -110,15 +115,16 @@
           			<td>{$row['name']}</td>
           			<td>{$row['cno']}</td>
                 <td>
-                <ol>" ?>
+                <ul>" ?>
                 <?php
                     $customer_list = mysqli_query($mysqli, "SELECT SNAME FROM customers_13100 WHERE sid=$id");
+                    if ($customer_list -> num_rows > 0)
                     while ($name_list = mysqli_fetch_assoc($customer_list)) 
-                      echo  "<li>{$name_list['SNAME']}</li>"
-                    
+                      echo  "<li>{$name_list['SNAME']}</li>";
+                    else echo "<li>none</li>";
                     ?>
                     <?php
-                echo "</ol>
+                echo "</ul>
                 
                 
                 </td>

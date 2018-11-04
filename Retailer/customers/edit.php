@@ -16,10 +16,8 @@ $cno = $_POST['cno'];
 $gc = $_POST['gc'];
 $sid = $_POST['sid'];
 
-
-if (isset($_POST['cid'])) {
-
-$CreateSql = "UPDATE customers_13100 SET CID='$cid',SNAME='$sname',CNAME='$cname',CNO='$cno',ADDRESS='$address',AREA='$area',GC='$gc', sid='$sid' WHERE CID=$cid";
+//CID='$cid',
+$CreateSql = "UPDATE customers_13100 SET SNAME='$sname',CNAME='$cname',CNO='$cno',ADDRESS='$address',AREA='$area',GC='$gc', sid='$sid' WHERE CID=$cid";
 
 $res = mysqli_query($mysqli, $CreateSql);
 
@@ -29,9 +27,5 @@ $res = mysqli_query($mysqli, $CreateSql);
 // WHERE
 // CID = '" . $cid . "'";
 
-} 
-else {
-echo "invalid response";
-}
 
 ?>

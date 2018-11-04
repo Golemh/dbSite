@@ -21,13 +21,12 @@ $pass = password_hash($password, PASSWORD_DEFAULT);
 
 
 // $firstname = mysqli_real_escape_string($_POST['firstname']);
-$CreateSql = "INSERT INTO `users_13100` (`uid`, `password`, `active`, `sid`) VALUES ('$uid', '$pass', '$active', '$sid')";
+$CreateSql = "INSERT INTO `users_13100` (`uid`, `password`, `active`, `sid`) VALUES ('$uid', '$pass', b'$active', '$sid')";
 
 $res = mysqli_query($mysqli, $CreateSql) or die(mysqli_error($mysqli));
 
 
-
- 
+;
 
 
 

@@ -1,6 +1,6 @@
 <?php
- $username = "sualeh";
- $password = "sualeh";
+ $username = "root";
+ $password = "";
  $host = "localhost";
  $DB = "Shop";
  $mysqli = mysqli_connect($host, $username, $password, $DB);

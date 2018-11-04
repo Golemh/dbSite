@@ -20,14 +20,20 @@ $(document).ready(function(){
              'name': name, 'cno': cno
          }
 
+        if  (name == '' || name == null)
+            alert("No name given. Please enter a name");
 
-             $.ajax({
+        else if  (cno == '' || cno == null)
+            alert("No contact number given. Please enter a number");
+
+
+        else $.ajax({
                  type: "POST",
                  url: "update.php",
                  data: myData,
                  cache: false,
                  success: function(data){
-                    alert(data);
+                    
                      $('#addModal').modal('hide');
                      location.reload(true);
                  }
@@ -91,9 +97,14 @@ var myData = {
          }
 
 
-         if(data1 == '') {
-             alert("Please fill all fields");
-         } else {
+         
+        if  (name == '' || name == null)
+            alert("No name given. Please enter a name");
+
+        else if  (cno == '' || cno == null)
+            alert("No contact number given. Please enter a number");
+
+        else {
              $.ajax({
                  type: "POST",
                  url: "edit.php",

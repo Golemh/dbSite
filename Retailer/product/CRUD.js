@@ -23,8 +23,22 @@ $(document).ready(function(){
              'brand': brand, 'type': type, 'shade': shade, 'size': size, 'price': price
          }
 
+        if  (brand == '' || brand == null)
+            alert("No brand given. Please enter a brand");
 
-             $.ajax({
+        else if  (type == '' || type == null)
+            alert("No type given. Please enter a type");
+
+        else if  (shade == '' || shade == null)
+            alert("No shade given given. Please enter a shade");
+
+        else if  (price == '' || price == null)
+            alert("No price given. Please enter a price");
+
+        else if  (size == '' || size == null)
+            alert("No size given. Please enter a size");
+  
+            else  $.ajax({
                  type: "POST",
                  url: "update.php",
                  data: myData,
@@ -99,9 +113,22 @@ var myData = {
          }
 
 
-         if(data1 == '') {
-             alert("Please fill all fields");
-         } else {
+         if  (brand == '' || brand == null)
+            alert("No brand given. Please enter a brand");
+
+        else if  (type == '' || type == null)
+            alert("No type given. Please enter a type");
+
+        else if  (shade == '' || shade == null)
+            alert("No shade given given. Please enter a shade");
+
+        else if  (price == '' || price == null)
+            alert("No price given. Please enter a price");
+
+        else if  (size == '' || size == null)
+            alert("No size given. Please enter a size");
+
+        else {
              $.ajax({
                  type: "POST",
                  url: "edit.php",

@@ -12,27 +12,34 @@ $(document).ready(function(){
     $('#update').click(function(){
         var uid = $("#uid").val();
         var password = $("#password").val();
-        var active =  $("#active").val();
-        var sid =  $("#sid").val();
+        // var sid =  $("#sid").val();
+        var sid = $("#sid option:selected").attr("nameid");
+
+        if ($("#active").is(":checked")) 
+            var active =  1;
+
+        else 
+            var active = 0;
+
         
-
-
          var myData = {
              'uid': uid, 'password': password, 'active': active, 'sid': sid
          }
 
+        if  (uid == '' || uid == null)
+            alert("No user name given. Please enter a user name");
 
-             $.ajax({
+        else  {  $.ajax({
                  type: "POST",
                  url: "update.php",
                  data: myData,
                  cache: false,
-                 success: function(html){
+                 success: function(response){
                      $('#addModal').modal('hide');
                      location.reload(true);
                  }
              });
-        
+        }
         return false;
     });
 
@@ -67,13 +74,13 @@ $(".edit_class").click(function() {
 parent = $(this).closest('tr');
 data1 = parent.find('td').eq(0).html();
 data2 = parent.find('td').eq(1).html();
-data3 = parent.find('td').eq(2).html();
+//data3 = parent.find('td').eq(2).html();
 data4 = parent.find('td').eq(3).html();
 
 
 $('#euid').val(data1);
 $('#epassword').val(data2);
-$('#eactive').val(data3);
+//$('#eactive').val(data3);
 $('#esid').val(data4);
 
 
@@ -84,8 +91,14 @@ $("#eUpdate").click(function() {
 var uid = data1;
 var euid = $('#euid').val();
 var password =  $("#epassword").val();
-var active =  $("#eactive").val();
-var sid= $("#esid").val();
+// var sid= $("#esid").val();
+var sid = $("#sid option:selected").attr("nameid");
+
+        if ($("#eactive").is(":checked")) 
+            var active =  1;
+
+        else 
+            var active = 0;
 
 
 var myData = {

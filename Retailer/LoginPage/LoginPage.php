@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<HTML>
 <?php 
  //Start the Session
 session_start();
@@ -23,12 +24,15 @@ if ($count == 1){
 //3.1.2 If the posted values are equal to the database values, then session will be created for the user.
 	if (password_verify($password, $row['password']))
 		$_SESSION['username'] = $username;
+
+  else 
+    echo "<script>alert('Wrong password');</script>";
 }
 
 //3.1.3 If the login credentials doesn't match, he will be shown with an error message.
 else{
-	echo "<script>alert('message');</script>";
-	$fmsg = "Invalid Login Credentials.";
+	echo "<script>alert('No such user name found');</script>";
+	//$fmsg = "Invalid Login Credentials.";
 	
 }
 }
@@ -41,7 +45,7 @@ if (isset($_SESSION['username'])){
 	}
 else{
 	?>
-<HTML>
+
 <head>
  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,14 +69,14 @@ else{
               <i class="fa d-inline fa-lg fa-envelope-o"></i> Go to</a>
           
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="http://localhost/Retailer/customers/index.php">Customers</a>
-            <a class="dropdown-item" href="http://localhost/Retailer/Salesperson/index.php">Salesperson</a>
-            <a class="dropdown-item" href="http://localhost/Retailer/Product/index.php">Product</a>
-            <a class="dropdown-item" href="http://localhost/Retailer/Users/index.php">Users</a>
+            <a class="dropdown-item" href="../customers/index.php">Customers</a>
+            <a class="dropdown-item" href="../Salesperson/index.php">Salesperson</a>
+            <a class="dropdown-item" href="../Product/index.php">Product</a>
+            <a class="dropdown-item" href="../Users/index.php">Users</a>
           </div>
           </li>
         </ul>
-        <a class="btn navbar-btn btn-primary ml-2 text-white" href="http://localhost/Retailer/LoginPage/LoginPage.php">
+        <a class="btn navbar-btn btn-primary ml-2 text-white" href="LoginPage.php">
           <i class="fa d-inline fa-lg fa-user-circle-o"></i> Sign in</a>
       </div>
     </div>

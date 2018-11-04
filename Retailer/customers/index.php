@@ -5,7 +5,7 @@
  session_start();
  include 'connection.php';
  if (!isset($_SESSION['username'])):
-    header("Location: /dbSite/Retailer/LoginPage/LoginPage.php");
+    header("Location: ../LoginPage/LoginPage.php");
   
  else:
  ;?>
@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/dbSite/Retailer/LoginPage/AdminPanel.html">
+            <a class="nav-link" href="../LoginPage/AdminPanel.html">
               <i class="fa d-inline fa-lg fa-bookmark-o"></i> Admin panel</a>
           </li>
           <li class="nav-item dropdown">
@@ -36,10 +36,10 @@
               <i class="fa d-inline fa-lg fa-envelope-o"></i> Go to</a>
           
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/dbSite/Retailer/customers/index.php">Customers</a>
-            <a class="dropdown-item" href="/dbSite/Retailer/Salesperson/index.php">Salesperson</a>
-            <a class="dropdown-item" href="/dbSite/Retailer/product/index.php">Product</a>
-            <a class="dropdown-item" href="/dbSite/Retailer/Users/index.php">Users</a>
+            <a class="dropdown-item" href="../customers/index.php">Customers</a>
+            <a class="dropdown-item" href="../Salesperson/index.php">Salesperson</a>
+            <a class="dropdown-item" href="../product/index.php">Product</a>
+            <a class="dropdown-item" href="../Users/index.php">Users</a>
           </div>
           </li>
         </ul>
@@ -50,7 +50,7 @@
           <a class="btn navbar-btn btn-primary ml-2 text-white" href="http://localhost/Retailer/LoginPage/logout.php">
           <i class="fa d-inline fa-lg fa-user-circle-o"></i> Log out</a>
           <?php else : ?>
-        <a class="btn navbar-btn btn-primary ml-2 text-white" href="http://localhost/Retailer/LoginPage/LoginPage.php">
+        <a class="btn navbar-btn btn-primary ml-2 text-white" href="../LoginPage/LoginPage.php">
           <i class="fa d-inline fa-lg fa-user-circle-o"></i> Log in</a>
         <?php endif; ?>
       </div>
@@ -147,10 +147,10 @@
           
           <!-- Form -->
         <form >
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label class="sr-only" for="CID">Customer ID</label>
             <input type="email" class="form-control" id="CID" placeholder="Customer ID">
-          </div>
+          </div> -->
 
           <div class="form-group">
             <label class="sr-only" for="SNAME">Shop name</label>
@@ -220,10 +220,10 @@
           
           <!-- Form -->
         <form >
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label class="sr-only" for="CID">Customer ID</label>
             <input type="email" class="form-control" id="eCID" placeholder="Customer ID">
-          </div>
+          </div> -->
 
           <div class="form-group">
             <label class="sr-only" for="SNAME">Shop name</label>

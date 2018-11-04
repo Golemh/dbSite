@@ -3,9 +3,9 @@
 
 <?php
   session_start();
-  include 'connection.php';
+  include '../connection.php';
   if (!isset($_SESSION['username'])):
-    header("Location: /dbSite/Retailer/LoginPage/LoginPage.php");
+    header("Location: ../LoginPage/LoginPage.php");
   
  else:
 ;?>
@@ -17,6 +17,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="theme.css">
+
+
      </head>
 
   <body>
@@ -29,7 +31,7 @@
         <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/dbSite/Retailer/LoginPage/AdminPanel.html">
+              <a class="nav-link" href="../LoginPage/AdminPanel.html">
                 <i class="fa d-inline fa-lg fa-bookmark-o"></i> Admin panel</a>
             </li>
             <li class="nav-item dropdown">
@@ -37,10 +39,10 @@
                 <i class="fa d-inline fa-lg fa-envelope-o"></i> Go to</a>
             
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/dbSite/Retailer/customers/index.php">Customers</a>
-              <a class="dropdown-item" href="/dbSite/Retailer/Salesperson/index.php">Salesperson</a>
-              <a class="dropdown-item" href="/dbSite/Retailer/product/index.php">Product</a>
-              <a class="dropdown-item" href="/dbSite/Retailer/Users/index.php">Users</a>
+              <a class="dropdown-item" href="../customers/index.php">Customers</a>
+            <a class="dropdown-item" href="../Salesperson/index.php">Salesperson</a>
+            <a class="dropdown-item" href="../product/index.php">Product</a>
+            <a class="dropdown-item" href="../Users/index.php">Users</a>
             </div>
             </li>
           </ul>
@@ -99,16 +101,27 @@
               </tr>
           </thead>
           <tbody>
+            <!-- <td>{$row['sid']}</td> -->
               <?php
               // <td>{$row['password']}</td>
               while ($row = mysqli_fetch_assoc($users_list)) {
                 $id = $row['uid'];
+                $sid = $row['sid'];
+                $name = mysqli_query($mysqli, "SELECT name FROM salesperson_13100 where sid='$sid'");
+                $salesperson_name = mysqli_fetch_assoc($name)['name'];
+                
+                if ($row['active'] == 1) 
+                  $active = "yes";
+                else $active = "no";
+                
+
                   echo
                    "<tr>
             			<td>{$row['uid']}</td>
             			
-            			<td>{$row['active']}</td>
-            			<td>{$row['sid']}</td>
+            			<td>".$active."</td>
+            			
+                  <td>{$salesperson_name}</td>
                   <td>
                     <div class=\"btn-group\" role=\"group\" aria-label=\"...\">
                     <button  id=\"edit\" class=\"edit_class btn-primary\" data-toggle=\"modal\" data-target=\"#editModal\">Edit</button>
@@ -148,15 +161,28 @@
             </div>
 
             <div class="form-group">
-              <label class="sr-only" for="active">Active</label>
-              <input type="text" class="form-control" id="active" placeholder="Active">
+            <?php 
+            $salesperson_list = mysqli_query($mysqli, "SELECT name, sid FROM salesperson_13100");
+            ?>
+            <SELECT class="form-control" name="Salesperson" id="sid" onchange="GetNameId">
+              <?php 
+                while ($row =  mysqli_fetch_assoc($salesperson_list)) {
+                $id = $row['sid'];
+                echo '<option nameid="'.$id.'">'.$row['name'].'</option>';
+          }?>
+          </SELECT> 
+          </div>
+  
+
+            <div class="form-check">
+                <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" id ="active" value="1">
+                Active
+              </label>
             </div>
 
-            <div class="form-group">
-              <label class="sr-only" for="sid">Salesperson ID</label>
-              <input type="text" class="form-control" id="sid" placeholder="Salesperson ID">
-            </div>
           </form>
+
 
 
         </div>
@@ -193,14 +219,24 @@
               <input type="text" class="form-control" id="epassword" placeholder="Password">
             </div>
 
-            <div class="form-group">
-              <label class="sr-only" for="active">Active</label>
-              <input type="text" class="form-control" id="eactive" placeholder="Active">
-            </div>
+          <div class="form-group">
+            <?php 
+            $salesperson_list = mysqli_query($mysqli, "SELECT name, sid FROM salesperson_13100");
+            ?>
+            <SELECT class="form-control" name="Salesperson" id="sid" onchange="GetNameId">
+              <?php 
+                while ($row =  mysqli_fetch_assoc($salesperson_list)) {
+                $id = $row['sid'];
+                echo '<option nameid="'.$id.'">'.$row['name'].'</option>';
+          }?>
+          </SELECT> 
+          </div>
 
-            <div class="form-group">
-              <label class="sr-only" for="sid">Salesperson ID</label>
-              <input type="text" class="form-control" id="esid" placeholder="Salesperson ID">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" id ="active" value="1">
+                Active
+              </label>
             </div>
           </form>
 

@@ -21,7 +21,7 @@ $cno = $_POST['cno'];
 $CreateSql = "INSERT INTO `salesperson_13100` (`name`, `cno`) VALUES ('$name', '$cno')";
 
 $res = mysqli_query($mysqli, $CreateSql) or die(mysqli_error($mysqli));
-return var_dump($_POST);
+
 
 // $query = "UPDATE customers
 // SET " . $_POST['datastring'] . "

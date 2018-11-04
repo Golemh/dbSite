@@ -101,6 +101,17 @@
           			<td>{$row['ADDRESS']}</td>
           			<td>{$row['AREA']}</td>
           			<td>{$row['GC']}</td>
+                <td>// Assume $db is a PDO object
+                    $query = $db->query("YOUR QUERY HERE"); // Run your query
+
+                    echo '<select name="DROP DOWN NAME">'; // Open your drop down box
+
+                    // Loop through the query results, outputing the options one by one
+                    while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                       echo '<option value="'.$row['something'].'">'.$row['something'].'</option>';
+                    }
+
+                    echo '</select>';// Close your drop down box</td>
                 <td>
                   <div class=\"btn-group\" role=\"group\" aria-label=\"...\">
                   <button type=\"button\" id=\"edit\" class=\"btn btn-default edit_class\" data-toggle=\"modal\" data-target=\"#editModal\">Edit</button>

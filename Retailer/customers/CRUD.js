@@ -10,7 +10,7 @@ $(document).ready(function(){
     var data7;
     
     $('#update').click(function(){
-        var cid =  $("#CID").val();
+        //var cid =  $("#CID").val();
         var sname = $("#SNAME").val();
         var cname = $("#CNAME").val();
         var address =  $("#Address").val();
@@ -20,13 +20,33 @@ $(document).ready(function(){
         var sid = $("#sid option:selected").attr("nameid");
         
 
-         var myData = {
-             'cid': cid, 'sname': sname, 'cname': cname, 'address': address, 'area': area, 'cno': cno, 'gc': gc, 'sid': sid
+        var myData = {
+             //'cid': cid,
+             'sname': sname, 'cname': cname, 'address': address, 'area': area, 'cno': cno, 'gc': gc, 'sid': sid
          }
 
-         if(cid == '') {
-             alert("Please fill all fields");
-         } else {
+        // if (cid == '' || cid == null ||  /^\d+$/.test(val))
+        //     alert("invalid CID. please enter an integer as CID");
+         
+        if  (sname == '' || sname == null)
+            alert("No shop name given. Please enter a name");
+
+        else if  (cname == '' || cname == null)
+            alert("No Customer name given. Please enter a name");
+
+        else if  (address == '' || address == null)
+            alert("No address given given. Please enter a name");
+
+        else if  (area == '' || area == null)
+            alert("No area given. Please enter an area");
+
+        else if  (cno == '' || cno == null)
+            alert("No contact number given. Please enter a number");
+
+        else if  (gc == '' || gc == null)
+            alert("Empty shop name given. Please enter a name");
+
+        else {
              $.ajax({
                  type: "POST",
                  url: "update.php",
@@ -40,6 +60,12 @@ $(document).ready(function(){
         }
         return false;
     });
+
+$("#addModal.in").keypress(function(){
+    if(e.which == 13){
+        $('#update').click();
+    }
+});
 
 
 $(".delete_class").click(function() {
@@ -93,7 +119,7 @@ $('#eGC').val(data7);
 $("#eUpdate").click(function() {
 
 
-var cid =    $("#eCID").val();
+var cid =    data1;
 var sname =  $("#eSNAME").val();
 var cname =  $("#eCNAME").val();
 var address= $("#eCNO").val();
@@ -102,15 +128,34 @@ var cno =    $("#eArea").val();
 var gc =     $("#eGC").val();
 var sid = $("#esid option:selected").attr("nameid");;
 
-var dataString = 'CID='+cid + ' SNAME='+sname + ' CNAME:' + cname + ' ADDRESS:' + address + ' AREA:' + area + ' CNO:' + cno + ' GC:' + gc;
+
+
+
+//var dataString = 'CID='+cid + ' SNAME='+sname + ' CNAME:' + cname + ' ADDRESS:' + address + ' AREA:' + area + ' CNO:' + cno + ' GC:' + gc;
 var myData = {
              'cid': cid, 'sname': sname, 'cname': cname, 'address': address, 'area': area, 'cno': cno, 'gc': gc,'sid': sid
          }
 
 
-         if(data1 == '') {
-             alert("Please fill all fields");
-         } else {
+        if  (sname == '' || sname == null)
+            alert("No shop name given. Please enter a name");
+
+        else if  (cname == '' || cname == null)
+            alert("No Customer name given. Please enter a name");
+
+        else if  (address == '' || address == null)
+            alert("No address given given. Please enter a name");
+
+        else if  (area == '' || area == null)
+            alert("No area given. Please enter an area");
+
+        else if  (cno == '' || cno == null)
+            alert("No contact number given. Please enter a number");
+
+        else if  (gc == '' || gc == null)
+            alert("No Geographic coordinates given. Please enter a name");
+        
+        else {
              $.ajax({
                  type: "POST",
                  url: "edit.php",
@@ -118,7 +163,6 @@ var myData = {
                  cache: false,
                  success: function(response){
                      //$('#addModal').modal('hide');
-                     
                      location.reload(true);
                  }
              });
