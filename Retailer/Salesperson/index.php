@@ -88,6 +88,8 @@ list-style-type: none;
     
     ?>
 
+    
+
       <div id="Add-entry" style="text-align: right; padding: 5px">
         <button class="btn btn-primary btn-small" data-toggle="modal" data-target="#addModal"> Add
         </button>

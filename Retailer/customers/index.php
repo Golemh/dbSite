@@ -21,6 +21,7 @@
 <body>
   <nav class="navbar navbar-expand-md bg-primary navbar-dark">
     <div class="container">
+      <span ><img src="../icons8-ninja-head-50.png"></span>
       <a class="navbar-brand" href="#">Ninja Retailors(NinRe)</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent">
         <span class="navbar-toggler-icon"></span>
